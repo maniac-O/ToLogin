@@ -15,10 +15,11 @@
             console.log(response); // The current login status of the person.
             if (response.status === 'connected') { // Logged into your webpage and Facebook.
                 testAPI();
-                
+                doucment.querySelector('#loginout).value ='login';
             } else { // Not logged into your webpage or we are unable to tell.
                 document.getElementById('status').innerHTML = 'Please log ' +
                     'into this webpage.';
+                doucment.querySelector('#loginout).value = 'logout';
             }
         }
 
@@ -65,6 +66,16 @@
 
     <div id="status">
     </div>
+    <input type="button" id="loginout" value="checking..." onclick="
+        if(this.value === 'Login'){
+            FB.login((res)=>{
+            console.log('login=>',res);
+         });
+        }else{
+            FB.logout((res)=>{
+            console.log('logout =>',res);
+            });
+         }">
 
     <!-- Load the JS SDK asynchronously -->
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
