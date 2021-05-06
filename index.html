@@ -13,10 +13,12 @@
         function statusChangeCallback(response) { // Called with the results from FB.getLoginStatus().
             if (response.status === 'connected') { // Logged into your webpage and Facebook.
                 document.querySelector('#loginout').value ='Logout';
+                console.log('login=>',response.status);
             } else { // Not logged into your webpage or we are unable to tell.
                 document.getElementById('status').innerHTML = 'Please log ' +
                     'into this webpage.';
                 document.querySelector('#loginout').value = 'Login';
+                console.log('logout=>',response.status);
             }
         }
 
@@ -45,7 +47,6 @@
     <input type="button" id="loginout" value="checking..." onclick="
         if(this.value === 'Login'){
             FB.login((res)=>{
-            console.log('login=>',res);
             statusChangeCallback(res);                                                        
          });
         }else{
