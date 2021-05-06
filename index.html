@@ -11,7 +11,6 @@
 <body>
     <script>
         function statusChangeCallback(response) { // Called with the results from FB.getLoginStatus().
-            console.log('statusChangeCallback');
             if (response.status === 'connected') { // Logged into your webpage and Facebook.
                 document.querySelector('#loginout').value ='Logout';
             } else { // Not logged into your webpage or we are unable to tell.
@@ -21,12 +20,6 @@
             }
         }
 
-
-        function checkLoginState() { // Called when a person is finished with the Login Button.
-            FB.getLoginStatus(function (response) { // See the onlogin handler
-                statusChangeCallback(response);
-            });
-        }
 
 
         window.fbAsyncInit = function () {
@@ -58,10 +51,12 @@
         if(this.value === 'Login'){
             FB.login((res)=>{
             console.log('login=>',res);
+            statusChangeCallback(res);                                                        
          });
         }else{
             FB.logout((res)=>{
             console.log('logout =>',res);
+            statusChangeCallback(res);
             });
          }">
 
