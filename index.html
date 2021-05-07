@@ -111,8 +111,7 @@ O
     </div>
     <input type="button" id="loginBtn" value="checking..." onclick="
         if(this.value ==='Login'){
-           gAuth.signIn({
-             scope:'https://www.googleapis.com/auth/calendar'                                                       
+           gAuth.signIn({                                                  
            }).then(()=>{
             console.log('gAuth.signIn()');
             checkLoginStatus();
