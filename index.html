@@ -74,7 +74,7 @@
         
         
     </script>
-i
+j
 
     <!-- The JS SDK Login Button -->
 
@@ -97,9 +97,13 @@ i
     
     <input type="button" id="loginBtn" value="checking..." onclick="
         if(this.value ==='Login'){
-                                                                    
+           gAuth.signIn().then(()=>{
+            console.log('gAuth.signIn()');
+           });                                                    
         }else{
-                                                                    
+           gAuth.signOut().then(()=>{
+            console.log('gAuth.signOut()');
+           });                                                                         
         }
     ">
     <!-- Load the JS SDK asynchronously -->
