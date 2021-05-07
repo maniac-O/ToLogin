@@ -13,6 +13,16 @@
 
 <body>
     <script>
+        funtcion checkLoginStatus(){
+            let loginBtn = document.querySelector('#loginBtn');  
+            if(gAuth.isSignedIn.get()){
+                console.log('logined');
+                loginBtn.value = 'Logout';
+            }else{
+                console.log('logouted');
+                loginBtn.value = 'Login';
+            }
+        }
         function init() {
             console.log('a');
           gapi.load('auth2', function() {
@@ -22,15 +32,7 @@
                 });
               gAuth.then(function(){
                 console.log('googleAuth success');
-                let loginBtn = document.querySelector('#loginBtn');  
-                
-                if(gAuth.isSignedIn.get()){
-                    console.log('logined');
-                    loginBtn.value = 'Logout';
-                }else{
-                    console.log('logouted');
-                    loginBtn.value = 'Login';
-                }
+                checkLoginStatus()
               }, function(){
                 console.log('googleAuth failed');
               });
@@ -74,7 +76,7 @@
         
         
     </script>
-j
+k
 
     <!-- The JS SDK Login Button -->
 
@@ -99,10 +101,12 @@ j
         if(this.value ==='Login'){
            gAuth.signIn().then(()=>{
             console.log('gAuth.signIn()');
+            checkLoginStatus();
            });                                                    
         }else{
            gAuth.signOut().then(()=>{
             console.log('gAuth.signOut()');
+            checkLoginStatus();
            });                                                                         
         }
     ">
