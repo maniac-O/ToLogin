@@ -14,13 +14,17 @@
 <body>
     <script>
         function checkLoginStatus(){
-            let loginBtn = document.querySelector('#loginBtn');  
+            let loginBtn = document.querySelector('#loginBtn');
+            let nameTxt = document.querySelector('#name');
             if(gAuth.isSignedIn.get()){
                 console.log('logined');
                 loginBtn.value = 'Logout';
+                let profile = gAuth.currentUser.get().getBasicProfile();
+                nameTxt.innerHTML = `Welcome <strong>${profile.getName()}</strong>`;
             }else{
                 console.log('logouted');
                 loginBtn.value = 'Login';
+                nameTxt.innerHTML ="";
             }
         }
         function init() {
@@ -76,7 +80,8 @@
         
         
     </script>
-k
+L
+    <span id="name"></span>
 
     <!-- The JS SDK Login Button -->
 
@@ -84,6 +89,9 @@ k
     </fb:login-button>
 
     <div id="status">
+    </div>
+    <div>
+        Facebook Login
     </div>
     <input type="button" id="loginout" value="Login" onclick="
         if(this.value === 'Login'){
@@ -96,7 +104,10 @@ k
             statusChangeCallback(res);
             });
          }">
-    
+   <br>
+    <div>
+        Google Login
+    </div>
     <input type="button" id="loginBtn" value="checking..." onclick="
         if(this.value ==='Login'){
            gAuth.signIn().then(()=>{
