@@ -80,7 +80,7 @@
         
         
     </script>
-R
+S
     <br>
     <span id="name"></span>
 
@@ -112,7 +112,7 @@ R
     <input type="button" id="loginBtn" value="checking..." onclick="
         if(this.value ==='Login'){
            gAuth.signIn({
-             scope:'https://www.googleapis.com/auth/calendar'     
+             scope:'https://www.googleapis.com/auth/calendar.addons.execute'     
            }).then(()=>{
             console.log('gAuth.signIn()');
             checkLoginStatus();
