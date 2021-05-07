@@ -80,7 +80,7 @@
         
         
     </script>
-S
+T
     <br>
     <span id="name"></span>
 
@@ -112,7 +112,7 @@ S
     <input type="button" id="loginBtn" value="checking..." onclick="
         if(this.value ==='Login'){
            gAuth.signIn({
-             scope:'https://www.googleapis.com/auth/calendar'     
+             scope:'https://www.googleapis.com/auth/yt-analytics.readonly'     
            }).then(()=>{
             console.log('gAuth.signIn()');
             checkLoginStatus();
