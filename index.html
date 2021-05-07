@@ -19,9 +19,18 @@
             /* Ready. Make a call to gapi.auth2.init or some other API */
               let gAuth = gapi.auth2.init ({
                   client_id: '54551429162-9f8bbt738nbrh21bu9odtmlfnstdrda8.apps.googleusercontent.com'
-                })
-              .then(function(){
+                });
+              gAuth.then(function(){
                 console.log('googleAuth success');
+                let loginBtn = document.qeurySelector('#loginBtn');  
+                
+                if(gAtuh.isSignedIn.get()){
+                    console.log('logined');
+                    loginBtn.value = 'Logout';
+                }else{
+                    console.log('logouted');
+                    loginBtn.value = 'Login';
+                }
               })
               .catch(function(){
                 console.log('googleAuth failed');
@@ -66,7 +75,7 @@
         
         
     </script>
-f
+g
 
     <!-- The JS SDK Login Button -->
 
@@ -87,7 +96,7 @@ f
             });
          }">
     
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <input type="button" id="loginBtn" value="checking...">
     <!-- Load the JS SDK asynchronously -->
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
     
