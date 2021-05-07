@@ -80,7 +80,8 @@
         
         
     </script>
-L
+M
+    <br>
     <span id="name"></span>
 
     <!-- The JS SDK Login Button -->
@@ -110,9 +111,12 @@ L
     </div>
     <input type="button" id="loginBtn" value="checking..." onclick="
         if(this.value ==='Login'){
-           gAuth.signIn().then(()=>{
+           gAuth.signIn({
+             scope:'https://www.googleapis.com/auth/calendar.readonly'                                                       
+           }).then(()=>{
             console.log('gAuth.signIn()');
             checkLoginStatus();
+                                                                    
            });                                                    
         }else{
            gAuth.signOut().then(()=>{
