@@ -19,10 +19,11 @@
             /* Ready. Make a call to gapi.auth2.init or some other API */
               let gAuth = gapi.auth2.init ({
                   client_id: '54551429162-9f8bbt738nbrh21bu9odtmlfnstdrda8.apps.googleusercontent.com'
-                });
-              gAuth.then(function(){
+                })
+              .then(function(){
                 console.log('googleAuth success');
-              },function(){
+              })
+              .catch(function(){
                 console.log('googleAuth failed');
               });
               console.log('b');
