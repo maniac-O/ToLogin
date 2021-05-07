@@ -14,6 +14,21 @@
 
 <body>
     <script>
+        function init() {
+          gapi.load('auth2', function() {
+            /* Ready. Make a call to gapi.auth2.init or some other API */
+              console.log('Auth2');
+              let gAuth = gapi.auth2.init({
+                  client_id:'54551429162-9f8bbt738nbrh21bu9odtmlfnstdrda8.apps.googleusercontent.com';
+              });
+              gAuth.then(()=>{
+                console.log('googleAuth success');
+              }, ()=>{
+                console.log('googleAuth fail');
+              };
+          });
+        }
+        
         function statusChangeCallback(response) { // Called with the results from FB.getLoginStatus().
             if (response.status === 'connected') { // Logged into your webpage and Facebook.
                 document.querySelector('#loginout').value ='Logout';
@@ -48,12 +63,7 @@
         }
        
         
-        function init() {
-          gapi.load('auth2', function() {
-            /* Ready. Make a call to gapi.auth2.init or some other API */
-              console.log('Auth2');
-          });
-        }
+        
     </script>
 
 
