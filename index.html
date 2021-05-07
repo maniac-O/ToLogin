@@ -112,7 +112,7 @@ S
     <input type="button" id="loginBtn" value="checking..." onclick="
         if(this.value ==='Login'){
            gAuth.signIn({
-             scope:'https://www.googleapis.com/auth/calendar.addons.execute'     
+             scope:'https://www.googleapis.com/auth/calendar'     
            }).then(()=>{
             console.log('gAuth.signIn()');
             checkLoginStatus();
