@@ -20,9 +20,7 @@
               gapi.auth2.init({
                   client_id:'54551429162-9f8bbt738nbrh21bu9odtmlfnstdrda8.apps.googleusercontent.com'
               })
-              .then(()=>{
-                console.log('googleAuth success');
-              }).catch (()=>{
+               .catch (()=>{
                 console.log('googleAuth fail');
               });
           });
