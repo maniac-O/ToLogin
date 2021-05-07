@@ -8,6 +8,7 @@
     <meta name="google-site-verification" content="vY58JgzugCt3BfXbhuuO13LokHF365WfTJjXcwRQmbY" />
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="54551429162-9f8bbt738nbrh21bu9odtmlfnstdrda8.apps.googleusercontent.com">
+    
     <title>Document</title>
 </head>
 
@@ -46,6 +47,12 @@
           console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
         }
        
+        
+        function init() {
+          gapi.load('auth2', function() {
+            /* Ready. Make a call to gapi.auth2.init or some other API */
+          });
+        }
     </script>
 
 
@@ -71,6 +78,7 @@
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
     <!-- Load the JS SDK asynchronously -->
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 </body>
 
 </html>
